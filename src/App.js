@@ -1,23 +1,19 @@
 
-import './App.css';
+import './styles/App.css';
+import Carousel from './components/Carousel';
+import Display from './components/Display';
+import Navbar from './components/Navbar';
+import Cart from './components/Cart';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          pearl motors
-        </a>
-      </header>
+     
+    <Navbar/>
+     <Carousel />
+     <Display />
+     <Cart/>
+     
     </div>
   );
 }

@@ -1,0 +1,37 @@
+.topnav {
+  position: fixed;
+  top: 50px;
+  z-index: 3;
+  background-color: #0d0c1d;
+  color: antiquewhite;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+h2,
+p {
+  color: black;
+  font-size: large;
+}
+.labels,
+.calculationDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 20px;
+  width: 75%;
+  margin-left: 12.5%;
+}
+.calculationDiv {
+  border-bottom: 0.5px solid grey;
+}
+.removeItem {
+  background-color: red;
+  color: aquamarine;
+}

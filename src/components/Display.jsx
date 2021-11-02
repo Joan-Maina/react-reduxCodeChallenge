@@ -1,12 +1,14 @@
 
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import '../styles/Display.css'
 import passat from '../images/passat1.JPG'
+import { addToCart } from '../redux/actions/DisplayAction'
 
 function Display() {
 
+  const dispatch = useDispatch();
 
     const state = useSelector(state => state);
 
@@ -24,7 +26,7 @@ function Display() {
             </div>
             <div className="main-container">
             {/* <h1>joan</h1> */}
-            {state.filter((car) => {
+            {state.cars.filter((car) => {
               if(searchItem == ''){
                 return car
               }else if(car.carMake.toLowerCase().includes(searchItem.toLowerCase())){
@@ -37,7 +39,7 @@ function Display() {
                    
                     <p>Year of Production: {car.carYear}</p>
                     <p>Price Offer: {car.carPrice}</p>
-                    <button className="addToCartButton">ADD TO CART</button>
+                    <button className="addToCartButton"  onClick={() => dispatch(addToCart(car.carId))}>ADD TO CART</button>
                    
                     {/* <CarDetails trigger = {showCarDetails} setTrigger = {setShowCarDetails}>
 

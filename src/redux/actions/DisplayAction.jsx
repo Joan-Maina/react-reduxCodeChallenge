@@ -1,4 +1,4 @@
-import { DISPLAY_DESCRIPTION, ADD_TO_CART, SEARCH_CARS } from '../types'
+import { DISPLAY_DESCRIPTION, ADD_TO_CART, SEARCH_CARS ,REMOVE_FROM_CART} from '../types'
 
 export const displayDescription = () => {
     return {
@@ -17,6 +17,13 @@ export const searchCar = (searchItem) => {
     return {
         type: SEARCH_CARS,
         searchItem
+    }
+
+}
+export const removeFromCart = (id) => {
+    return {
+        type: REMOVE_FROM_CART,
+        payload: id
     }
 
 }

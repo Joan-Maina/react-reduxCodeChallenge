@@ -3,10 +3,12 @@ import './styles/App.css';
 import Home from "./components/Home";
 import About from "./components/About";
 import Cart from './components/Cart';
+import React from "react";
 
 function App() {
   return (
-<Router>
+  <React.StrictMode>
+    <Router>
     
     <div className="App">
    
@@ -22,6 +24,7 @@ function App() {
       </Switch>
     </div>
   </Router>
+  </React.StrictMode>
   );
 }
 

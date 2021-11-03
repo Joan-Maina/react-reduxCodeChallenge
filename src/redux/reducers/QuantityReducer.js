@@ -1,13 +1,17 @@
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
+import { cars } from '../../cars'
+import { INCREMENT,DECREMENT } from "../types";
+
+const initialState = {cars, cart: []};
 
 
-const QuantityReducer = (action) => {
+const QuantityReducer = (state = initialState ,action) => {
 
-    const state = useSelector(state => state)
+    // 
     console.log('running reducer');
 
     switch(action.type){
-        case 'INCREMENT':
+        case INCREMENT:
             const items1 = state.cart.map(c => {
                 if (c.id === action.id) {
                     c.quantity++
@@ -19,7 +23,7 @@ const QuantityReducer = (action) => {
                 ...state,
                 cart: [...items1]
             }
-        case 'DECREMENT':
+        case DECREMENT:
             const items = state.cart.map(c => {
                 if (c.id === action.id) {
                     c.quantity > 1 && c.quantity--

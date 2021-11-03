@@ -3,6 +3,7 @@ import '../styles/Cart.css'
 import { useSelector, useDispatch } from 'react-redux'
 import {increment,decrement} from '../redux/actions/QuantityAction'
 import {removeFromCart} from '../redux/actions/DisplayAction'
+import { Link } from "react-router-dom";
 
 function Cart() {
 
@@ -34,30 +35,57 @@ function Cart() {
 
 
     return (
-        <div className="cartItems">
-            <div className="labels">
-                <p>ITEM</p>
-                <p>QUANTITY</p>
-                <p>PRICE</p>
-                <p>GRAND-TOTAL</p>
-                <p>TOTAL</p>
-            </div>
-            {state?.cart.map(item => (       
-                <div key={item.carId} className="calculationDiv">
-                    {/* <img src=""> */}
-                    <p>{item.carMake}</p>
-                    <p>
-                        <button onClick={() => dispatch(increment(item.carId))}>  +</button>
-                        {item.quantity}
-                        <button onClick={() => dispatch(decrement(item.carId))}>  -</button>
-                    </p>
-                    <p>{item.carPrice}</p>
-                    <p>{item.quantity * item.carPrice}</p>
-                    <p>total</p>
-                    <button className="removeItem" onClick={() => dispatch(removeFromCart(item.carId))}>X</button>
+        <div className="page-container">
+      <h3 className="cart-heading">Your Cart</h3>
+      {state.cart.length === 0 ? (
+        <div className="empty-cart">
+          <h5>YOUR CART IS EMPTY</h5>
+        </div>
+        ) : (
+        <div className="cart-list">
+            <div className="cartItems">
+                <div className="cart-item">
+                <table>
+                    <tr>
+                    <th>Car Make</th>
+                    <th>QUANTITY</th>
+                    <th>PRICE</th>
+                    <th>GRAND-TOTAL</th>
+                    <th>Remove-item</th>
+                    </tr>
+                    {state?.cart.map(item => (
+                    <tr key={item.carId} > {/*className="calculationDiv"*/}
+                        <td>
+                        <h4>{item.carMake}</h4>
+                        </td>
+                        <td>
+                            <button onClick={() => dispatch(increment(item.carId))}>  +</button>
+                                {item.quantity}
+                            <button onClick={() => dispatch(decrement(item.carId))}>  -</button>
+                        </td>
+                        <td>
+                        <h4 className="cart-item-price">Ksh {item.carPrice}</h4>
+                        </td>
+                        
+                        <td>
+                        <h4 className="cart-item-total">
+                            {item.quantity * item.carPrice}
+                        </h4>
+                        </td>
+                        <td>
+                        <i className="removeItem"
+                            onClick={() => dispatch(removeFromCart(item.carId))}
+                            className="fa fa-trash"
+                        ></i>
+                        </td>
+                    </tr>
+                    ))}
+                </table>
                 </div>
-            ))}
-            <div className="cart-total-container">
+            </div>
+            
+            <div>
+                
                 <div className="cart-total-container">
                     <h4 className="cart-total-item">
                         <span>Cart Price</span> <span>Ksh {cartTotal}</span>
@@ -69,9 +97,19 @@ function Cart() {
                         <span>Total Price</span> <span>Ksh {cartTotal-discount}</span>
                     </h4>
                 </div>
+                
             </div>
-        </div>  
+        </div> 
+        )}
+        <div className="cart-btns">
+          <Link className="continue-btn" to="/cars">
+            Continue Shopping
+          </Link>
+          <Link className="checkout-btn">Checkout</Link>
+        </div>
+      </div> 
     )
+    
 }
 
 export default Cart;

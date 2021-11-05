@@ -1,64 +1,9 @@
-body {
-  height: 200px;
-  margin-top: 90px;
-}
-.hero-text {
-  display: flex;
-  flex-direction: column-reverse;
-}
-.item {
-  /* opacity: 0.5; */
-  position: relative;
-}
-.carousel-caption {
-  opacity: 1;
-  font-weight: 800;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  margin-left: 0;
-  padding: 90px;
-  color: black;
-}
-/* #imageOne {
-  width: 70%;
-} */
-.carousel-inner {
-  margin-left: 200px;
-}
-.imageOne,
-.imageTwo {
-  opacity: 0.5;
-  margin-top: 10px;
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-}
-img {
-  margin-top: 10px;
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-}
-#myCarousel {
-  background-color: whitesmoke;
-  height: 100vh;
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
 }
 
-@media (max-width: 500px) {
-  body {
-    margin: 0;
-  }
-  .hero-text {
-    width: 500px;
-  }
-  .imageOne,
-  .imageTwo {
-    width: fit-content;
-    height: fit-content;
-    margin-left: -10px;
-  }
-  .carousel-caption {
-    visibility: hidden;
-  }
+.carousel .slide img {
+  max-height: 500px;  /* change this to whatever you want */
+  width: auto;
 }

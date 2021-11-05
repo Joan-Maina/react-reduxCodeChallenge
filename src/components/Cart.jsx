@@ -105,7 +105,7 @@ function Cart() {
           <Link className="continue-btn" to="/">
             Continue Shopping
           </Link>
-          <Link className="checkout-btn">Checkout</Link>
+          <Link className="checkout-btn" to="#">Checkout</Link>
         </div>
       </div> 
     )

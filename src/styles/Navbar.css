@@ -1,36 +1,15 @@
-body {
-  width: 100%;
-  color: aquamarine;
-}
-.nav-links {
+.header {
+  /* height: 100px; */
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 120%;
-  margin-left: -10%;
-  position: fixed;
-  top: 0;
-  z-index: 3;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
-  background-color: #06042c;
-  color: aquamarine;
-  list-style: none;
-  padding: 10px;
 }
-/* .navbar {
-  padding: 20px;
-} */
-h2 {
-  font-family: "Festive", cursive;
-  font-family: "Open Sans", sans-serif;
-  font-size: 50px;
+@media (max-width: 1000px) {
+  /* .header {
+    height: auto;
+  } */
 }
-.navlabel,
-i {
-  color: aquamarine;
-}
-.label,
-li {
-  color: aquamarine;
+
+.navbar-brand {
+  font-size: 29px;
+  margin-right: 50px;
 }

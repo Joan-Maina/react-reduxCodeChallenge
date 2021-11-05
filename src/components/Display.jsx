@@ -14,7 +14,7 @@ function Display() {
 
   const [searchItem, setSearchItem] = useState("");
 
-  console.log(state.cars);
+  
   return (
     <div className="display">
       <div className="search">
@@ -31,7 +31,7 @@ function Display() {
         </button>
       </div>
       <div className="main-container">
-        {/* <h1>joan</h1> */}
+       
         {state.cars
           .filter((car) => {
             if (searchItem == "") {
@@ -63,24 +63,6 @@ function Display() {
               >
                 ADD TO CART
               </button>
-
-              {/* <CarDetails trigger = {showCarDetails} setTrigger = {setShowCarDetails}>
-
-                      <Modal.Dialog>
-                        <Modal.Header>
-                          <Modal.Title>{car.carFuelType}</Modal.Title>
-                        </Modal.Header>
-
-                        <Modal.Body>
-                          <p>{car.carTransmission}</p>
-                          <p>{car.carEngineSize}</p>
-                        </Modal.Body>
-
-                        <Modal.Footer>
-                          <Button variant="secondary">Close</Button>
-                        </Modal.Footer>
-                      </Modal.Dialog>
-                    </CarDetails> */}
             </div>
           ))}
       </div>
@@ -89,3 +71,4 @@ function Display() {
 }
 
 export default Display;
+

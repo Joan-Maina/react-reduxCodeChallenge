@@ -102,7 +102,7 @@ function Cart() {
         </div> 
         )}
         <div className="cart-btns">
-          <Link className="continue-btn" to="/cars">
+          <Link className="continue-btn" to="/">
             Continue Shopping
           </Link>
           <Link className="checkout-btn">Checkout</Link>

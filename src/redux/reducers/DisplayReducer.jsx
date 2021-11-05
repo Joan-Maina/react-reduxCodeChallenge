@@ -1,14 +1,14 @@
-import { DISPLAY_DESCRIPTION, ADD_TO_CART , INCREMENT , DECREMENT, SEARCH_CARS, REMOVE_FROM_CART} from '../types'
+import { ADD_TO_CART , INCREMENT , DECREMENT, SEARCH_CARS, REMOVE_FROM_CART, GET_DESCRIPTION} from '../types'
 import { cars } from '../../cars'
 
 
-const initialState = {cars, cart: []};
+const initialState = {cars, cart: [], selectedItem:[]};
 
 const displayDescription = (state = initialState , action) => {
     switch(action.type){
         case ADD_TO_CART:
             const itemInCart = state.cart.find(c => c.carId === action.payload);
-            const item = state.cars.find(car => car.carId === action.payload)
+            const item = state.cars.find(car => car.carId === action.payload);
             if(itemInCart) return state
             console.log(state.cart)
             return{
@@ -42,7 +42,11 @@ const displayDescription = (state = initialState , action) => {
                 const filteredCart = state.cart.filter(c => c.carId !== action.payload);
                 return { ...state, cart: [...filteredCart] }
 
-
+                case GET_DESCRIPTION:
+                    const Sitem = state.cars.find(car => car.carId === action.payload);
+                    return{
+                        ...state, selectedItem: [Sitem]
+                    }
     // case SEARCH_CARS:
     //         return {
     //             ...state,

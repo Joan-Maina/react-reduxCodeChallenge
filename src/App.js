@@ -3,6 +3,7 @@ import './styles/App.css';
 import Home from "./components/Home";
 import About from "./components/About";
 import Cart from './components/Cart';
+import CarDescription from './components/CarDescription';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route className='path' path="/about" component={About}/>
           
         <Route className='path' path="/cart" component={Cart}/>
+
+        <Route className="path" path='/description' component ={CarDescription}/>
           
       </Switch>
     </div>

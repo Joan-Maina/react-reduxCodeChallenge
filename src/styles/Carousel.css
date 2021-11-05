@@ -1,5 +1,5 @@
 body {
-  height: 80%;
+  height: 200px;
   margin-top: 90px;
 }
 .hero-text {
@@ -20,20 +20,25 @@ body {
   padding: 90px;
   color: black;
 }
-#imageOne {
+/* #imageOne {
   width: 70%;
-}
+} */
 .carousel-inner {
   margin-left: 200px;
 }
 .imageOne,
 .imageTwo {
   opacity: 0.5;
+  margin-top: 10px;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
 img {
   margin-top: 10px;
-  width: 450px;
-  height: 100vh;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
 #myCarousel {
   background-color: whitesmoke;

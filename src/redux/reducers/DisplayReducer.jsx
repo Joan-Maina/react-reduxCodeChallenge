@@ -42,7 +42,7 @@ const displayDescription = (state = initialState , action) => {
                 const filteredCart = state.cart.filter(c => c.carId !== action.payload);
                 return { ...state, cart: [...filteredCart] }
 
-                case GET_DESCRIPTION:
+            case GET_DESCRIPTION:
                     const Sitem = state.cars.find(car => car.carId === action.payload);
                     return{
                         ...state, selectedItem: [Sitem]

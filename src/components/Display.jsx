@@ -5,6 +5,7 @@ import { useState } from "react";
 import "../styles/Display.css";
 import { Link } from "react-router-dom";
 import {increment,decrement} from '../redux/actions/QuantityAction'
+import {removeFromCart} from '../redux/actions/DisplayAction'
 
 function Display() {
   const dispatch = useDispatch();
@@ -47,8 +48,14 @@ function Display() {
           })
           .map((car) => {
 
-            const inCart =state.cart.find( (item) => item.carId === car.carId);
-            console.log(inCart)
+            const inCart =state.cart.find( (item) => item.carId === car.carId ? true : false);
+            const fetchQuantity = () => {
+              if (state.cart.length === 0){
+                return 0
+              }else {
+                return state.cart.find((fetchedCar) => fetchedCar.carId === car.carId).quantity;
+              }
+            }
 
             return(
               <div key={car.carId} className="singleCar">
@@ -65,16 +72,23 @@ function Display() {
 
               <p>Year of Production: {car.carYear}</p>
               <p>Price Offer: {car.carPrice}</p>
-              {!inCart ? <button
+              {inCart ?  <div>
+                <button onClick={() => dispatch(increment(car.carId))}>  +</button>
+                                  {state.cart.map(item => item.carId === car.carId && item.quantity )}
+                <button onClick={() => {
+                  if (fetchQuantity() <= 1){ 
+                    dispatch(removeFromCart(car.carId))
+                  }else{
+                    dispatch(decrement(car.carId))
+                  } }
+                } >  -</button>
+                  
+                </div> :  <button
                 className="addToCartButton"
                 onClick={() => dispatch(addToCart(car.carId))}
               >
                 ADD TO CART
-              </button> : <div>
-                <button onClick={() => dispatch(increment(car.carId))}>  +</button>
-                                  {state.cart.quantity}
-                <button onClick={() => dispatch(decrement(car.carId))}>  -</button>
-                </div>}
+              </button>}
             </div>
             )           
             

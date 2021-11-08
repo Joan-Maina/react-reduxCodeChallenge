@@ -1,3 +1,11 @@
+
+.carouselContainer{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .carousel .thumb img {
   width: 100% !important;
   height: 100% !important;
@@ -5,5 +13,7 @@
 
 .carousel .slide img {
   max-height: 500px;  /* change this to whatever you want */
-  width: auto;
+  width: 500px;
+  object-fit: fill;
+  object-position: initial;
 }

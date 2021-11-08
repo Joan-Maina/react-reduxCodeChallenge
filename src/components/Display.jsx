@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import "../styles/Display.css";
 import { Link } from "react-router-dom";
+import {increment,decrement} from '../redux/actions/QuantityAction'
 
 function Display() {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => state);
+  //const cartItems = useSelector((state) => state.cart);
 
   const [showCarDetails, setShowCarDetails] = useState(false);
 
@@ -31,6 +33,7 @@ function Display() {
         </button>
       </div>
       <div className="main-container">
+     
        
         {state.cars
           .filter((car) => {
@@ -42,8 +45,13 @@ function Display() {
               return car;
             }
           })
-          .map((car) => (
-            <div key={car.carId} className="singleCar">
+          .map((car) => {
+
+            const inCart =state.cart.find( (item) => item.carId === car.carId);
+            console.log(inCart)
+
+            return(
+              <div key={car.carId} className="singleCar">
               <p className="carMake">Make: {car.carMake}</p>
               <Link to="description">
                 <img
@@ -54,17 +62,23 @@ function Display() {
                 />
               </Link>
               <p>Mileage:{car.carMileage}</p>
-              {/* <p>{car.carImage}</p> */}
+
               <p>Year of Production: {car.carYear}</p>
               <p>Price Offer: {car.carPrice}</p>
-              <button
+              {!inCart ? <button
                 className="addToCartButton"
                 onClick={() => dispatch(addToCart(car.carId))}
               >
                 ADD TO CART
-              </button>
+              </button> : <div>
+                <button onClick={() => dispatch(increment(car.carId))}>  +</button>
+                                  {state.cart.quantity}
+                <button onClick={() => dispatch(decrement(car.carId))}>  -</button>
+                </div>}
             </div>
-          ))}
+            )           
+            
+})}
       </div>
     </div>
   );

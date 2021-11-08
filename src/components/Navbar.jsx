@@ -21,7 +21,7 @@ function Navbar() {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div style={{display: "flex", justifyContent:"end"}} className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav right hide-on-med-and-down ">
                 <Link   to="/"><li><i className="fa fa-home fa-2x" aria-hidden="true"></i></li></Link>
 

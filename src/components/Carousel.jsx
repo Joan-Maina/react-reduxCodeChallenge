@@ -12,6 +12,7 @@ const Carousel2 = () => {
   const { cars } = useSelector((state) => state);
   
       return (
+        <div className="carouselContainer">
           <Carousel showThumbs={false} >
             {cars.map((car)=> (
               <div key = {car.carId} >
@@ -20,6 +21,7 @@ const Carousel2 = () => {
               </div>
              ))}
           </Carousel>
+          </div>
       );
   }
 

@@ -53,3 +53,9 @@
     visibility: hidden;
   }
 }
+
+.search-detail{
+  margin: 0 auto;
+  width : 70%;
+  border: thin;
+}

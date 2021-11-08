@@ -20,8 +20,9 @@ function Display() {
   
   return (
     <div className="display">
-      <div className="search">
+      <div className="search search-detail">
         <input
+          id="search"
           type="text"
           placeholder="Search.."
           onChange={(event) => {
@@ -30,7 +31,7 @@ function Display() {
         ></input>
 
         <button>
-          <i class="fa fa-search-plus" aria-hidden="true"></i>
+        <i class="material-icons red-text">close</i>
         </button>
       </div>
       <div className="main-container">

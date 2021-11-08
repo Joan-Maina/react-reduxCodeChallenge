@@ -10,7 +10,7 @@ const displayDescription = (state = initialState , action) => {
             const itemInCart = state.cart.find(c => c.carId === action.payload);
             const item = state.cars.find(car => car.carId === action.payload);
             if(itemInCart) return state
-            console.log(state.cart)
+
             return{
                 ...state,
                 cart:[...state.cart, {...item, quantity:1}]
